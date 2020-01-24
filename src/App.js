@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import HeaderComponente from './componentes/HeaderComponente';
+import Highcharts from 'highcharts';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  componentDidMount(){
+    Highcharts.chart('grafico', {
+      title:{
+        text: "Mi registro de peso"
+      },
+      series: [{
+          name: 'Jane',
+          data: [1, 0, 4]
+      }]
+    });
+  }
+
+  render(){
+    return (
+      <div>
+        <HeaderComponente/>
+        <h1>Hola mundo</h1>
+        <div id="grafico"></div>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
